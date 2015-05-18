@@ -1,0 +1,39 @@
+=========================================================================
+README for C++ library GeoComp and examples.
+=========================================================================
+Copyright 2011,21012 Sebastien Bougleux
+=========================================================================
+This file is part of GeoComp.
+
+GeoComp is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+GeoComp is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with GeoComp. If not, see <http://www.gnu.org/licenses/>.
+=========================================================================
+LIST OF CONTRIBUTORS
+
+=========================================================================
+SETUP THE LIBRARY
+No particular setup
+=========================================================================
+USING THE LIBRARY
+Just include a .hh file.
+=========================================================================
+GENERATING THE HTML DOCUMENTATION WITH DOXYGEN
+In the directory geocomp:
+mkdir doc
+doxygen doc-config-file
+=========================================================================
+GENERATING THE EXAMPLE
+- CImg examples (need to install CImg)
+  In the directory geocomp run the script install.
+=========================================================================
+
