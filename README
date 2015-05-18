@@ -16,8 +16,11 @@ warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU Lesser General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with GeoComp. If not, see <http://www.gnu.org/licenses/>.
+along with CombinationOfPiecewiseGeodesicPaths.
+If not, see <http://www.gnu.org/licenses/>.
 =========================================================================
+
+
 
 =========================================================================
 HOW TO BUILD AND RUN
@@ -28,18 +31,18 @@ HOW TO BUILD AND RUN
 CombinationOfPiecewiseGeodesicPaths was tested under Ubuntu 14.04
 
 If you have libpng, libjpeg and zlib alreadey installed in the default
-library directory /usr/lib, then edit image2d.h and to the following
+library directory /usr/lib, then edit image2d.cpp and do the following
 replacements:
 
-#include <png/png.h> -> #include <png.h>
-#include <jpeg/jepglib.h> -> #include <jpeglib.h>
+line 9: #include <png/png.h> -> #include <png.h>
+line 15: #include <jpeg/jepglib.h> -> #include <jpeglib.h>
 
 Edit the Makefile and comment lines defining INCLUDE_DIR and LIB_DIR
 
 > make
 > ./combpaths
 
-Otherwise, if you're using a 32-bit Linux, then leave image2d.h and
+Otherwise, if you're using a 32-bit Linux, then leave image2d.cpp and
 Makefile as provided. Run the previous commands. If you're using a 64-bit
 and do not wish to install the image libraries, then you should download
 and build them on your own and set the Makefile accordingly
