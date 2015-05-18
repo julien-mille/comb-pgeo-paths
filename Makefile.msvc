@@ -1,0 +1,25 @@
+#
+# Makefile for CombinationOfPiecewiseGeodesicPaths
+# With Microsoft Visual C++ command line tools
+# Command: nmake /F Makefile.msvc
+#
+CC = cl
+CPPFLAGS = /c
+LINKER = link
+LINKFLAGS = /NODEFAULTLIB:LIBCMT
+OBJS = arrayndfloat.obj histogram.obj image2d.obj main.obj path.obj piecewisegeodesiccombination.obj voronoigraph.obj
+FINAL_TARGET = combpaths
+INCLUDES = /I ./external/include
+LIBS = /LIBPATH:./external/lib/msvc8 libpng.lib zlib.lib libjpeg.lib 
+
+default: $(FINAL_TARGET)
+
+$(FINAL_TARGET): $(OBJS)
+	$(LINKER) $(LINKFLAGS) $(OBJS) $(LIBS) /OUT:$(FINAL_TARGET)
+
+.cpp.obj:
+	$(CC) $(CPPFLAGS) $(INCLUDES) $*.cpp
+
+clean:
+	del *.obj $(FINAL_TARGET)
+
