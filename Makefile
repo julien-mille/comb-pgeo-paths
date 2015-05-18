@@ -1,15 +1,16 @@
 #
 # Makefile for CombinationOfPiecewiseGeodesicPaths
-# Compiler: gcc/MinGW
+# Compiler: gcc
+# Command line: make
 #
 CC = g++
-CPPFLAGS = -DNDEBUG -O3 -msse2
+CPPFLAGS = -DNDEBUG -O3
 LD = g++
-LDFLAGS = -DNDEBUG -O3 -msse2
+LDFLAGS = -DNDEBUG -O3
 SRCS = arrayndfloat.cpp histogram.cpp image2d.cpp main.cpp path.cpp piecewisegeodesiccombination.cpp voronoigraph.cpp
 FINAL_TARGET = combpaths
-INCLUDE_DIR = -I./external/include
-LIB_DIR = #-L./external/lib/gcc # set directory to ./external/lib/mingw if using MinGW
+INCLUDE_DIR = -I./external/include # Comment if using the default packaged libraries (headers are in /usr/include)
+LIB_DIR = -L./external/lib/gcc # Comment if using the default packaged libraries (in /usr/lib)
 LIBS = -lpng -lz -ljpeg 
 
 default: $(FINAL_TARGET)
