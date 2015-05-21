@@ -8,7 +8,7 @@ CPPFLAGS = /c
 LINKER = link
 LINKFLAGS = /NODEFAULTLIB:LIBCMT
 OBJS = arrayndfloat.obj histogram.obj image2d.obj main.obj path.obj piecewisegeodesiccombination.obj voronoigraph.obj
-FINAL_TARGET = combpaths
+FINAL_TARGET = combpaths.exe
 INCLUDES = /I ./external/include /I ./external/include/png /I ./external/include/zlib /I ./external/include/jpeg
 LIBS = /LIBPATH:./external/lib/msvc8 libpng.lib zlib.lib libjpeg.lib 
 

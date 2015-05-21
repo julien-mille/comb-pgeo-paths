@@ -10,7 +10,7 @@ LDFLAGS = -DNDEBUG -O3
 SRCS = arrayndfloat.cpp histogram.cpp image2d.cpp main.cpp path.cpp piecewisegeodesiccombination.cpp voronoigraph.cpp
 FINAL_TARGET = combpaths.exe
 INCLUDE_DIR = -I./external/include -I./external/include/png -I./external/include/zlib -I./external/include/jpeg
-LIB_DIR = ./external/lib/mingw
+LIB_DIR = -L./external/lib/mingw
 LIBS = -lpng -lz -ljpeg 
 
 default: $(FINAL_TARGET)
