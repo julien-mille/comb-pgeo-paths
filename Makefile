@@ -9,8 +9,8 @@ LD = g++
 LDFLAGS = -DNDEBUG -O3
 SRCS = arrayndfloat.cpp histogram.cpp image2d.cpp main.cpp path.cpp piecewisegeodesiccombination.cpp voronoigraph.cpp
 FINAL_TARGET = combpaths
-INCLUDE_DIR = -I./external/include # Comment if using the default packaged libraries (headers are in /usr/include)
-LIB_DIR = -L./external/lib/gcc # Comment if using the default packaged libraries (in /usr/lib)
+INCLUDE_DIR = # -I./external/include # Uncomment if using your own build of libpng, zlib and libjpeg
+LIB_DIR = # -L./external/lib/gcc # Uncomment if using your own build of libpng, zlib and libjpeg
 LIBS = -lpng -lz -ljpeg 
 
 default: $(FINAL_TARGET)

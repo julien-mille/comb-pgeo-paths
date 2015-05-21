@@ -6,13 +6,13 @@
 
 #ifdef IMAGE2D_SUPPORT_PNG
 extern "C" {
-#include <png/png.h> // If you use the libpng package under Debian/Ubuntu, change the include path to <png.h>
+#include <png.h>
 }
 #endif
 
 #ifdef IMAGE2D_SUPPORT_JPG
 extern "C" {
-#include <jpeg/jpeglib.h> // If you use the libjpeg package under Debian/Ubuntu, change the include path to <jpeglib.h>
+#include <jpeglib.h>
 }
 #include <setjmp.h>
 #endif
