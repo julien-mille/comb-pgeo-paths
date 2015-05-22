@@ -176,9 +176,9 @@ namespace GeoComp
     {
       if (y < -0.5) return -1;
       if (y == -0.5) return 0;
-      if (y > (FT)(_rows)-0.5) return -1;
-      if (y == (FT)(_rows-1)+0.5) return (_rows-1);
-      return (IT)round(y);
+      if (y > (FT)(_rows)-(FT)0.5) return -1;
+      if (y == (FT)(_rows-1)+(FT)0.5) return (_rows-1);
+      return (IT)(y + (FT)0.5);
     }
     // -------------------------------------------------------------------
     /**
@@ -193,7 +193,7 @@ namespace GeoComp
       if (x == -0.5) return 0;
       if (x > (FT)(_cols)-0.5) return -1;
       if (x == (FT)(_cols-1)+0.5) return (_cols-1);
-      return (IT)round(x);
+      return (IT)(x + (FT)0.5);
     }
     // -------------------------------------------------------------------
     template <typename ET>
@@ -478,8 +478,9 @@ namespace GeoComp
 	return f[index(pri,pci)]; // both are outside
       }
       // --- main case -----------------------------
-      IT r1 = (IT)round(pr+0.5), c1 = (IT)round(pc+0.5);
-      IT c2 = c1-1, r3 = r1-1;
+      IT r3 = (IT)pr, c2 = (IT)pc;
+      IT r1 = r3+1, c1 = c2+1;
+
       IT i1 = index(r1,c1), i2 = index(r1,c2), i3 = index(r3,c2), i4 = index(r3,c1);
       if (f[i1] != outside)
       {
@@ -516,7 +517,7 @@ namespace GeoComp
     template <typename FT, class Container>
     bool odeEuler(FT r, FT c, const FT *Dr, const FT *Dc, Container &path, bool terminal_nodes = true, FT dt = 0.6)
     {
-      IT p = index((IT)round(r),(IT)round(c)), ri, ci, mx = size()/10;
+      IT p = index((IT)(r+(FT)0.5),(IT)(c+(FT)0.5)), ri, ci, mx = size()/10;
       if (Dr[p] == 0 && Dc[p] == 0) return false;
       FT outside = std::numeric_limits<FT>::max();
       FT dr, dc, dtn;
@@ -531,7 +532,8 @@ namespace GeoComp
             return false;
 
         path.push_back(std::make_pair(r,c));
-        ri = (IT)round(r); ci = (IT)round(c);
+        ri = (IT)(r+(FT)0.5);
+        ci = (IT)(c+(FT)0.5);
         p = index(ri,ci);
         if (Dr[p] == 0 && Dc[p] == 0)
         {
